@@ -5,7 +5,7 @@
       <div class='content-padded'>
         <h1 class="demos-title">Default Buttons</h1>
         <div class="content-block">
-          <p><m-button>default button</m-button></p>
+          <p><m-button @click="defaultOnclick">default button</m-button></p>
           <p><m-button type="light">light button</m-button></p>
           <p><m-button type="danger">danger button</m-button></p>
           <p><m-button type="warning">warning button</m-button></p>
@@ -118,6 +118,11 @@ export default {
     'page-content': Content,
     ButtonGroup,
     'm-button': Button
+  },
+  methods: {
+    defaultOnclick (e) {
+      console.log('1')
+    }
   }
 }
 </script>

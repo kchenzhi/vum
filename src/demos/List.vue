@@ -1,197 +1,78 @@
 <template>
   <div class="page">
-    <simple-header title="List" :back-link="true"></simple-header>
+    <simple-header title="订单信息" :back-link="true"></simple-header>
     <page-content>
       <list>
-        <div slot="title">Simple List</div>
-        <list-item>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-          </div>
-        </list-item>
-        <list-item>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-          </div>
-        </list-item>
-        <div slot="append">
-          Append some message here.
-          Append some message here.
-          Append some message here.
-          Append some message here.
-        </div>
-      </list>
-      <list>
-        <div slot="title">List with different After Item</div>
-        <list-item>
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-          </div>
-        </list-item>
-        <list-item>
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after"><div class="badge">32</div></div>
-            </div>
-          </div>
-        </list-item>
-        <list-item>
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="30"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">
-                <switcher></switcher>
+        <div slot="title">{{room}}</div>
+        <template v-for="order in roomOrders">
+          <template v-for="p in order.items">
+            <list-item>
+              <div class="item-content">
+                <div class="item-title-row">
+                  <div class="item-title" style="margin-left: 50px">{{p.goods.name}}</div>
+                  <div class="item-after" style="margin-right: 50px"><input type="text"></div>
+                </div>
               </div>
-            </div>
-          </div>
-        </list-item>
+            </list-item>
+          </template>
+        </template>
       </list>
-      <list>
-        <list-item :link="true">
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
+      <div class='content-padded'>
+        <div class="content-block">
+          <div class="row">
+            <div class="col-50">
+              <m-button size="middle" type="danger">返回</m-button>
             </div>
-            <div class="item-subtitle">
-              Subtitle
+            <div class="col-50">
+              <m-button size="middle">收货</m-button>
             </div>
           </div>
-        </list-item>
-        <list-item :link="true">
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-          </div>
-        </list-item>
-      </list>
-      <list>
-        <list-item>
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="88"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-            <div class="item-text">
-              Text Text Text Text Text Text Text Text Text 
-            </div>
-          </div>
-        </list-item>
-        <list-item>
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="88"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-            <div class="item-text">
-              Text Text Text Text Text Text Text Text Text 
-            </div>
-          </div>
-        </list-item>
-      </list>
-      <list>
-        <div slot="title">Checkbox List</div>
-        <list-item :checkbox="true">
-          <input type="checkbox" name="name" value="A">
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-          </div>
-        </list-item>
-        <list-item :checkbox="true">
-          <input type="checkbox" name="name" value="B">
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-          </div>
-        </list-item>
-      </list>
-      <list>
-        <div slot="title">Radio List</div>
-        <list-item :radio="true">
-          <input type="radio" name="gender" value="1">
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-          </div>
-        </list-item>
-        <list-item :radio="true">
-          <input type="radio" name="gender" value="2" checked>
-          <div class="item-media"><img src="../assets/images/icon-list.png" width="44"></div>
-          <div class="item-content">
-            <div class="item-title-row">
-              <div class="item-title">Title</div>
-              <div class="item-after">After</div>
-            </div>
-            <div class="item-subtitle">
-              Subtitle
-            </div>
-          </div>
-        </list-item>
-      </list>
+        </div>
+      </div>
     </page-content>
   </div>
 </template>
 
 <script>
-import { SimpleHeader } from '../components/header'
-import Content from '../components/content'
-import { List, ListItem } from '../components/list'
-import Switcher from '../components/switcher'
+  import { SimpleHeader } from '../components/header'
+  import { Button } from '../components/buttons'
+  import Content from '../components/content'
+  import { List, ListItem } from '../components/list'
+  import Switcher from '../components/switcher'
 
-export default {
-  components: {
-    SimpleHeader,
-    'page-content': Content,
-    List,
-    ListItem,
-    Switcher
+  export default {
+    data () {
+      return {
+        orders: [
+          {
+            room: '9A408',
+            items: [{goodsName: '黑美人', num: 9}, {goodsName: '夏黑', num: 2}]
+          }
+        ],
+        room: ''
+      }
+    },
+    components: {
+      SimpleHeader,
+      'page-content': Content,
+      List,
+      ListItem,
+      Switcher,
+      'm-button': Button
+    },
+    asyncComputed: {
+      roomOrders () {
+        return this.$ajax.get('/order/' + this.room).then(function (response) {
+          console.log(response.data)
+          return response.data
+        })
+      }
+    },
+    mounted: function () {
+      this.room = this.$route.query.room
+      this.orders = this.$ajax.get('/order/' + this.room).then(function (response) {
+        return response.data
+      })
+    }
   }
-}
 </script>

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import FastClick from 'fastclick'
+import axios from 'axios'
+import AsyncComputed from 'vue-async-computed'
 
 import Vum from './vum.js'
 
@@ -10,6 +12,9 @@ import Page from './demos/Page'
 import Buttons from './demos/Buttons'
 import Column from './demos/Column'
 import Grid from './demos/Grid'
+import StoreReport from './demos/StoreReport.vue'
+import UnFinishReport from './demos/UnFinishReport'
+import AddStore from './demos/AddStore'
 import Modal from './demos/Modal'
 import List from './demos/List'
 import Contacts from './demos/Contacts'
@@ -33,6 +38,13 @@ import CircleProgress from './demos/CircleProgress'
 
 Vue.use(Router)
 Vue.use(Vum)
+Vue.use(AsyncComputed)
+
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
 
 let router = new Router({
   routes: [
@@ -56,6 +68,18 @@ let router = new Router({
     {
       path: '/grid',
       component: Grid
+    },
+    {
+      path: '/unFinishReport',
+      component: UnFinishReport
+    },
+    {
+      path: '/storeReport',
+      component: StoreReport
+    },
+    {
+      path: '/addStore',
+      component: AddStore
     },
     {
       path: '/modal',
@@ -147,6 +171,9 @@ let router = new Router({
     }
   ]
 })
+
+axios.defaults.withCredentials = true
+Vue.prototype.$ajax = axios
 
 new Vue({
   router

@@ -1,22 +1,21 @@
 <template>
   <div class="page">
     <page-footer>
-      <footer-item v-bind:class="{ 'active' : currentView === 'home' }" @click.native="changeView('home')">
+      <footer-item v-bind:class="{ 'active' : currentView === 'Contacts' }" @click.native="changeView('Contacts')">
         <span class="icon demo-icon-home"></span>
-        <label>Home</label>
+        <label>取货</label>
       </footer-item>
       <footer-item v-bind:class="{ 'active' : currentView === 'search' }" @click.native="changeView('search')">
         <span class="icon demo-icon-search"></span>
-        <label>Search</label>
+        <label>未取</label>
       </footer-item>
       <footer-item v-bind:class="{ 'active' : currentView === 'noti' }" @click.native="changeView('noti')">
         <span class="icon demo-icon-noti"></span>
-        <span class="badge">2</span>
-        <label>Noti</label>
+        <label>库存</label>
       </footer-item>
       <footer-item v-bind:class="{ 'active' : currentView === 'about' }" @click.native="changeView('about')">
         <span class="icon demo-icon-me"></span>
-        <label>About</label>
+        <label>入库</label>
       </footer-item>
     </page-footer>
     <keep-alive>
@@ -28,24 +27,25 @@
 <script>
 import Page from '../components/page'
 import { Footer, Item } from '../components/footer'
+import Contacts from './Contacts'
 import Home from './Home'
-import Search from './Search'
-import Noti from './Noti'
-import About from './About'
-
+import UnFinishReport from './UnFinishReport'
+import StoreReport from './StoreReport'
+import AddStore from './AddStore'
 export default {
   components: {
     Page,
     'page-footer': Footer,
     'footer-item': Item,
-    'home': Home,
-    'search': Search,
-    'noti': Noti,
-    'about': About
+    'Contacts': Contacts,
+    'search': UnFinishReport,
+    'noti': StoreReport,
+    'about': AddStore,
+    'home': Home
   },
   data () {
     return {
-      currentView: 'home'
+      currentView: 'Contacts'
     }
   },
   methods: {
