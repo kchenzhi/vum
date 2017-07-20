@@ -6,7 +6,7 @@
     </header-link>
     <page-title @click.native="toIndex">{{title}}</page-title>
     <header-link v-if="onFresh" :right="true" :edge="true" @click.native="refresh">
-      刷新
+      {{freshText}}
     </header-link>
   </page-header>
 </template>
@@ -39,6 +39,10 @@
       },
       onFresh: {
         type: Function
+      },
+      freshText: {
+        type: String,
+        default: '刷新'
       }
     },
     methods: {

@@ -64,7 +64,7 @@
     methods: {
       finishOrder () {
         var _self = this
-        this.$ajax.post('/store/', this.stores.filter(store => store.num > 0)).then(function (response) {
+        this.$ajax.post('/store/', this.stores.filter(store => store.num !== 0)).then(function (response) {
           if (response.data.code === 200) {
             _self.$router.push({path: '/result'})
           } else {

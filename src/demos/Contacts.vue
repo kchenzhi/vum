@@ -1,6 +1,6 @@
 <template>
   <div class="my-page">
-    <simple-header title="取货" :back-link="true"></simple-header>
+    <simple-header title="取货" :back-link="true" :freshText="'取货时间'" :onFresh="toTakeTime"></simple-header>
     <second-header>
       <searchbar @input="onInput"></searchbar>
     </second-header>
@@ -58,6 +58,9 @@
       },
       toList (e) {
         this.$router.push({path: '/form', query: {room: e.currentTarget.id}})
+      },
+      toTakeTime (e) {
+        this.$router.push({path: '/takeTimeReport'})
       }
     }
   }

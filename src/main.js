@@ -14,6 +14,7 @@ import Column from './demos/Column'
 import Grid from './demos/Grid'
 import StoreReport from './demos/StoreReport.vue'
 import UnFinishReport from './demos/UnFinishReport'
+import TakeTimeReport from './demos/TakeTimeReport'
 import AddStore from './demos/AddStore'
 import Modal from './demos/Modal'
 import List from './demos/List'
@@ -76,6 +77,10 @@ let router = new Router({
     {
       path: '/storeReport',
       component: StoreReport
+    },
+    {
+      path: '/takeTimeReport',
+      component: TakeTimeReport
     },
     {
       path: '/addStore',
