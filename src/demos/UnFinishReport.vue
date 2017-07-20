@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <simple-header title="未取货报表" :back-link="true"></simple-header>
+    <simple-header title="未取货报表" :back-link="true" :onFresh="refresh"></simple-header>
     <page-content>
       <div class="grid-demo">
         <div class="grids grids-small">
@@ -37,6 +37,14 @@
       this.$ajax.get('/order/unFinishReport').then(function (response) {
         _self.report = response.data
       })
+    },
+    methods: {
+      refresh () {
+        var _self = this
+        this.$ajax.get('/order/unFinishReport').then(function (response) {
+          _self.report = response.data
+        })
+      }
     }
   }
 </script>

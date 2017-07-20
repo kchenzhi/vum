@@ -5,7 +5,9 @@
       {{backText}}
     </header-link>
     <page-title @click.native="toIndex">{{title}}</page-title>
-    <slot></slot>
+    <header-link v-if="onFresh" :right="true" :edge="true" @click.native="refresh">
+      刷新
+    </header-link>
   </page-header>
 </template>
 
@@ -34,11 +36,19 @@
       backText: {
         type: String,
         default: 'Back'
+      },
+      onFresh: {
+        type: Function
       }
     },
     methods: {
       toIndex () {
         this.$router.push({path: '/'})
+      },
+      refresh () {
+        if (this.onFresh) {
+          this.onFresh()
+        }
       }
     }
   }
