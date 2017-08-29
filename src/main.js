@@ -15,6 +15,7 @@ import Grid from './demos/Grid'
 import StoreReport from './demos/StoreReport.vue'
 import UnFinishReport from './demos/UnFinishReport'
 import TakeTimeReport from './demos/TakeTimeReport'
+import TakeTimeSumReport from './demos/TakeTimeSumReport'
 import AddStore from './demos/AddStore'
 import Modal from './demos/Modal'
 import List from './demos/List'
@@ -81,6 +82,10 @@ let router = new Router({
     {
       path: '/takeTimeReport',
       component: TakeTimeReport
+    },
+    {
+      path: '/takeTimeSumReport',
+      component: TakeTimeSumReport
     },
     {
       path: '/addStore',

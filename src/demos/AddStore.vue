@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <simple-header title="入库" :back-link="true"></simple-header>
+    <simple-header title="入库" :back-link="true"  :freshText="'取货汇总'" :onFresh="toTakeTimeSum"></simple-header>
     <page-content>
       <form-list>
         <template v-for="p in stores">
@@ -74,6 +74,9 @@
       },
       clear () {
         this.stores.forEach(store => { store.num = 0 })
+      },
+      toTakeTimeSum (e) {
+        this.$router.push({path: '/takeTimeSumReport'})
       }
     }
   }
