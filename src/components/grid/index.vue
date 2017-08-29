@@ -28,7 +28,7 @@
   text-decoration: none;
 }
 .grids-small .grid {
-  width: 25%;
+  width: 20%;
   padding: 15px 8px;
 }
 .grid:before {
