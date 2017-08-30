@@ -181,8 +181,9 @@ let router = new Router({
     }
   ]
 })
-
-axios.defaults.withCredentials = true
+// axios.defaults.baseURL = 'http://localhost:8081'
+axios.defaults.baseURL = 'http://actvity-c.jinmailife.com'
+// axios.defaults.withCredentials = true
 Vue.prototype.$ajax = axios
 
 new Vue({

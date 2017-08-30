@@ -4,7 +4,8 @@
     <page-content>
       <form-list>
         <div slot="title">房号: {{room}}</div>
-        <template v-for="order in orders">
+        <template v-for="order,index in orders">
+          <div class="item-content" style="margin-left: 15px;" v-if="orders.length>1">订单{{index+1}}:</div>
           <template v-for="p in order.items">
             <form-item>
               <div class="item-media">
@@ -18,7 +19,6 @@
               </div>
             </form-item>
           </template>
-          <div slot="append"></div>
         </template>
       </form-list>
       <div class="content-block content-padded">
